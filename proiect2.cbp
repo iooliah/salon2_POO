@@ -32,6 +32,26 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Angajat.cpp" />
+		<Unit filename="Angajat.h" />
+		<Unit filename="Client.cpp" />
+		<Unit filename="Client.h" />
+		<Unit filename="Coafor.cpp" />
+		<Unit filename="Coafor.h" />
+		<Unit filename="Cosmetica.cpp" />
+		<Unit filename="Cosmetica.h" />
+		<Unit filename="Manichiura.cpp" />
+		<Unit filename="Manichiura.h" />
+		<Unit filename="Pedichiura.cpp" />
+		<Unit filename="Pedichiura.h" />
+		<Unit filename="Persoana.cpp" />
+		<Unit filename="Persoana.h" />
+		<Unit filename="Programare.cpp" />
+		<Unit filename="Programare.h" />
+		<Unit filename="Serviciu.cpp" />
+		<Unit filename="Serviciu.h" />
+		<Unit filename="Unghii.cpp" />
+		<Unit filename="Unghii.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
