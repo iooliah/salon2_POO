@@ -2,12 +2,12 @@
 #define PEDICHIURA_H
 #include <string>
 #include <iostream>
-
+#include <memory>
 #include "Unghii.h"
 
 class Pedichiura : public Unghii{
 protected:
-    bool masaj();
+    bool masaj;
 
 public:
     Pedichiura() = default;
@@ -22,7 +22,7 @@ public:
 
 
 protected:
-    void afiseaza(std::ostream& os) const override;
+    void afiseazaVirtual(std::ostream& os) const override;
 };
 
 #endif

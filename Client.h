@@ -1,12 +1,13 @@
 #ifndef CLIENT_H
 #define CLIENT_H
-
+#include <memory>
 #include "Persoana.h"
 
 class Client : public Persoana {
 private:
     int nrVizite;
     static int numarClienti;
+    void afiseazaVirtual(std::ostream& os) const override;
 
 public:
     Client() = default;
@@ -19,9 +20,6 @@ public:
     static int getNrClienti();
 
     std::string getRol() const override;
-
-protected:
-    void afiseaza(std::ostream& os) const override;
 };
 
 

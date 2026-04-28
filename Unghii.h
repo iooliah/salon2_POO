@@ -2,13 +2,14 @@
 #define UNGHII_H
 #include <string>
 #include <iostream>
-
+#include <memory>
 #include "Serviciu.h"
 
 class Unghii : public Serviciu{
 protected:
     bool design;
     bool gel;
+    float calcPretComun(bool angajatExperimentat, plata tipPlata, bool clientFidel) const;
 
 public:
     Unghii() = default;
@@ -22,9 +23,8 @@ public:
     std::string descriereServiciu() const override;
     std::shared_ptr<Serviciu> clone() const override;
 
-protected:
-    void afiseaza(std::ostream& os) const override;
-    float calcPretComun(bool angajatExperimentat, plata tipPlata, bool clientFidel) const;
+private:
+    void afiseazaVirtual(std::ostream& os) const override;
 };
 
 

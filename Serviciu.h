@@ -1,6 +1,6 @@
 #ifndef SERVICIU_H
 #define SERVICIU_H
-
+#include <memory>
 #include <string>
 #include <iostream>
 
@@ -31,13 +31,13 @@ public:
     virtual std::shared_ptr<Serviciu> clone() const = 0;
 
     //interfata non-virtuala pentru afisare
-    //friend std::ostream& operator<<(std::ostream& os, const Serviciu& s);
+    friend std::ostream& operator<<(std::ostream& os, const Serviciu& s);
 
-protected:
-    virtual void afiseaza(std::ostream& os) const;
+private:
+    virtual void afiseazaVirtual(std::ostream& os) const;
 };
 
-std::ostream& operator<<(std::ostream& os, const Serviciu& s);
+//std::ostream& operator<<(std::ostream& os, const Serviciu& s);
 
 
 #endif // SERVICIU_H

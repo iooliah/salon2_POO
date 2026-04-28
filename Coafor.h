@@ -2,6 +2,7 @@
 #define COAFOR_H
 #include <string>
 #include <iostream>
+#include <memory>
 #include "Serviciu.h"
 
 class Coafor : public Serviciu {
@@ -21,8 +22,8 @@ public:
     std::string descriereServiciu() const override;
     std::shared_ptr<Serviciu> clone() const override;
 
-protected:
-    void afiseaza(std::ostream& os) const override;
+private:
+    void afiseazaVirtual(std::ostream& os) const override;
 };
 
 #endif

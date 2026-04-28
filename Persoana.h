@@ -2,6 +2,7 @@
 #define PERSOANA_H
 #include <string>
 #include <iostream>
+#include <memory>
 
 class Persoana {
 protected:
@@ -23,17 +24,13 @@ public:
     void afiseaza(std::ostream& os) const;
 
     virtual std::string getRol() const = 0;
-
-    //clone
     virtual std::unique_ptr<Persoana> clone() const = 0;
 
     //interfata non-virtuala pentru afisare
     friend std::ostream& operator<<(std::ostream& os, const Persoana& p);
 
-    virtual std::string getRol() const = 0;
-
-protected:
-    virtual void afiseaza(std::ostream& os) const;
+private:
+    virtual void afiseazaVirtual(std::ostream& os) const;
 };
 
 //operator <<
@@ -41,5 +38,3 @@ protected:
 
 
 #endif // PERSOANA_H
-
-//+ personal curatenie POATE

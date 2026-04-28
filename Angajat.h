@@ -2,7 +2,7 @@
 #define ANGAJAT_H
 #include <string>
 #include <iostream>
-
+#include <memory>
 #include "Persoana.h"
 
 class Angajat : public Persoana {
@@ -10,6 +10,7 @@ private:
     int experienta;
     std::string specializare;
     static int numarAngajati;
+    void afiseazaVirtual(std::ostream& os) const override;
 
 public:
     Angajat() = default;
@@ -22,9 +23,6 @@ public:
 
     bool areExperienta() const;             //>= 5 ani => +10 lei
     std::string getRol() const override;    //rescrie o functie virtuala din clasa de baza Persoana
-
-protected:
-    void afiseaza(std::ostream& os) const override;
 };
 
 
