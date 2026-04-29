@@ -13,7 +13,7 @@
 #include "Cosmetica.h"
 #include "Exceptii.h"
 
-//forward declarations
+
 Client& cautaClient(std::vector<Client>& clienti, const std::string& nume, const std::string& prenume);
 Angajat& cautaAngajat(std::vector<Angajat>& angajati, const std::string& nume, const std::string& prenume);
 bool specializareBuna(const Angajat& angajat, const std::string& tipServiciu);
@@ -23,15 +23,15 @@ plata plataFinal(const std::string& text);
 float pretFix(const std::string& tipServiciu){
     if(tipServiciu == "MANICHIURA") return 100;
     if(tipServiciu == "PEDICHIURA") return 90;
-    if(tipServiciu == "COAFOR")     return 70;
-    if(tipServiciu == "COSMETICA")  return 90;
+    if(tipServiciu == "COAFOR") return 70;
+    if(tipServiciu == "COSMETICA") return 90;
     return 0;
 }
 int durataFixa(const std::string& tipServiciu){
     if(tipServiciu == "MANICHIURA") return 90;
     if(tipServiciu == "PEDICHIURA") return 70;
-    if(tipServiciu == "COAFOR")     return 40;
-    if(tipServiciu == "COSMETICA")  return 80;
+    if(tipServiciu == "COAFOR") return 40;
+    if(tipServiciu == "COSMETICA") return 80;
     return 0;
 }
 
