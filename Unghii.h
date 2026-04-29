@@ -7,8 +7,8 @@
 
 class Unghii : public Serviciu{
 protected:
-    bool design;
     bool gel;
+    bool design;
     float calcPretComun(bool angajatExperimentat, plata tipPlata, bool clientFidel) const;
 
 public:

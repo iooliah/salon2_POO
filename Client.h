@@ -1,7 +1,7 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
-#include "Persoana.h";
+#include "Persoana.h"
 
 class Client : public Persoana{
 private:

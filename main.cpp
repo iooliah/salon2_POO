@@ -19,6 +19,21 @@ bool specializareBuna(const Angajat& angajat, const std::string& tipServiciu);
 bool angajatDisponibil(const std::vector<Programare>& programari, const Angajat& angajat, const std::string& data, const std::string& ora);
 plata plataFinal(const std::string& text);
 
+float pretFix(const std::string& tipServiciu){
+    if(tipServiciu == "MANICHIURA") return 100;
+    if(tipServiciu == "PEDICHIURA") return 90;
+    if(tipServiciu == "COAFOR")     return 70;
+    if(tipServiciu == "COSMETICA")  return 90;
+    return 0;
+}
+int durataFixa(const std::string& tipServiciu){
+    if(tipServiciu == "MANICHIURA") return 90;
+    if(tipServiciu == "PEDICHIURA") return 70;
+    if(tipServiciu == "COAFOR")     return 40;
+    if(tipServiciu == "COSMETICA")  return 80;
+    return 0;
+}
+
 void citesteClienti(std::vector<Client>& clienti, const std::string& fis){
     std::ifstream fin(fis);
     std::string nume, prenume, telefon;
@@ -45,9 +60,8 @@ void citesteProgramari(std::vector<Programare>& programari,std::vector<Client>& 
 
     while(fin>>numeClient>>prenumeClient>>numeAngajat>>prenumeAngajat>>tipServiciu>>data>>ora>>plataText){
         try{
-            float pret;
-            int durata;
-            fin>> pret >> durata;
+            float pret = pretFix(tipServiciu);
+            int durata = durataFixa(tipServiciu);
 
             Client& client = cautaClient(clienti, numeClient, prenumeClient);
             Angajat& angajat = cautaAngajat(angajati, numeAngajat, prenumeAngajat);
@@ -181,6 +195,8 @@ void adaugaProgramare(std::vector<Programare>& programari, std::vector<Client>& 
     }
 
     std::shared_ptr<Serviciu> serviciu;
+    float pret = pretFix(tipServiciu);
+    int durata = durataFixa(tipServiciu);
 
     if(tipServiciu == "MANICHIURA"){
         bool gel, design, crema;
@@ -191,7 +207,7 @@ void adaugaProgramare(std::vector<Programare>& programari, std::vector<Client>& 
         std::cout<< "Crema (0/1): ";
         std::cin>> crema;
 
-        serviciu = std::make_shared<Manichiura>("Manichiura", pret, durata, gel, design, crema);
+        serviciu = std::make_shared<Manichiura>("Manichiura", gel, design, crema);
     }else if(tipServiciu == "PEDICHIURA"){
         bool gel, design, masaj;
         std::cout<< "Gel (0/1): ";
@@ -240,7 +256,7 @@ void adaugaProgramare(std::vector<Programare>& programari, std::vector<Client>& 
 
     std::ofstream fout("programari.txt", std::ios_base::app);
     fout<<client.getNume()<< " " <<client.getPrenume()<< " " <<angajat.getNume()<< " " <<angajat.getPrenume()<< " " <<
-    tipServiciu<< " " <<data<< " " <<ora<< " " <<plataText<< " " <<serviciu->getPret()<< " " <<serviciu->getDurata()<<std::endl;
+    tipServiciu<< " " <<data<< " " <<ora<< " " <<std::endl;
 
     std::cout<<"Programare adaugata.\n";
 }

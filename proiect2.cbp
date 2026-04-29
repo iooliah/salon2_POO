@@ -40,6 +40,8 @@
 		<Unit filename="Coafor.h" />
 		<Unit filename="Cosmetica.cpp" />
 		<Unit filename="Cosmetica.h" />
+		<Unit filename="Exceptii.cpp" />
+		<Unit filename="Exceptii.h" />
 		<Unit filename="Manichiura.cpp" />
 		<Unit filename="Manichiura.h" />
 		<Unit filename="Pedichiura.cpp" />
