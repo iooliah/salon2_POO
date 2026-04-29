@@ -19,7 +19,6 @@ Angajat::~Angajat(){
     numarAngajati--;
 }
 
-int Angajat::getExperienta() const{ return experienta; }
 const std::string& Angajat::getSpecializare() const{ return specializare; }
 int Angajat::getNrAngajati(){ return numarAngajati; }
 

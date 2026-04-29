@@ -1,8 +1,6 @@
 #ifndef PEDICHIURA_H
 #define PEDICHIURA_H
-#include <string>
-#include <iostream>
-#include <memory>
+
 #include "Unghii.h"
 
 class Pedichiura : public Unghii{

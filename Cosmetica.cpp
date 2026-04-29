@@ -4,10 +4,6 @@
 Cosmetica::Cosmetica(float pret, int durata, bool masca, const std::string& tipTratament)
     : Serviciu("Cosmetica", pret, durata), masca(masca), tipTratament(tipTratament){}
 
-//getters
-bool Cosmetica::getMasca() const{ return masca; }
-const std::string& Cosmetica::getTipTratament() const{ return tipTratament; }
-
 int Cosmetica::durataTotala() const {
     int durataFinala = durata;
     if(masca){

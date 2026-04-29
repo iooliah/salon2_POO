@@ -1,9 +1,6 @@
 #ifndef PROGRAMARE_H
 #define PROGRAMARE_H
-#include <memory>
-#include <string>
 #include <vector>
-
 #include "Client.h"
 #include "Angajat.h"
 #include "Serviciu.h"
@@ -33,11 +30,6 @@ public:
     const Angajat& getAngajat() const;
     const std::string& getData() const;
     const std::string& getOra() const;
-    plata getTipPlata() const;
-
-    void setData(const std::string& data);
-    void setOra(const std::string& ora);
-    void setTipPlata(plata tipPlata);
 
     int getDurataTotala() const;
     bool areServiciuCuTimpSuplimentar() const;             //pentru dynamic_pointer_cast

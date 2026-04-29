@@ -17,10 +17,6 @@ public:
     Serviciu(const std::string& nume, float pret, int durata);
     virtual ~Serviciu() = default;
 
-    const std::string& getNume() const;
-    float getPret() const;
-    int getDurata() const;
-
     void afiseaza(std::ostream& os) const;
 
     //functii virtuale pure

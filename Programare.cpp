@@ -31,13 +31,6 @@ const Client& Programare::getClient() const{ return client; }
 const Angajat& Programare::getAngajat() const{ return angajat; }
 const std::string& Programare::getData() const{ return data; }
 const std::string& Programare::getOra() const{ return ora; }
-plata Programare::getTipPlata() const{ return tipPlata; }
-
-//setters
-void Programare::setData(const std::string& data){ this->data = data; }
-void Programare::setOra(const std::string& ora){ this->ora = ora; }
-void Programare::setTipPlata(plata tipPlata){ this->tipPlata = tipPlata; }
-
 
 bool Programare::esteAcelasiClient(const Client& c1, const Client& c2){
     if((c1.getNume()==c2.getNume()) && (c1.getPrenume()==c2.getPrenume()) && (c1.getTelefon()==c2.getTelefon())){

@@ -2,14 +2,6 @@
 
 Serviciu::Serviciu(const std::string& nume, float pret, int durata) : nume(nume), pret(pret), durata(durata){}
 
-//getters
-const std::string& Serviciu::getNume() const {
-    return nume;
-}
-
-float Serviciu::getPret() const{ return pret; }
-int Serviciu::getDurata() const{ return durata; }
-
 //interfata non-virtuala
 void Serviciu::afiseaza(std::ostream& os) const{
     afiseazaVirtual(os);

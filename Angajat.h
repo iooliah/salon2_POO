@@ -19,7 +19,6 @@ public:
     Angajat(const Angajat& other);
     ~Angajat() override;                    //rescrie o functie virtuala din clasa de baza Persoana
 
-    int getExperienta() const;
     const std::string& getSpecializare() const;
     static int getNrAngajati();
 

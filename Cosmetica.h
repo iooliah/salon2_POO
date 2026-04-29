@@ -1,8 +1,6 @@
 #ifndef COSMETICA_H
 #define COSMETICA_H
-#include <string>
-#include <iostream>
-#include <memory>
+
 #include "Serviciu.h"
 
 class Cosmetica : public Serviciu {
@@ -14,9 +12,6 @@ private:
 public:
     Cosmetica() = default;
     Cosmetica(float pret, int durata, bool masca, const std::string& tipTratament);
-
-    bool getMasca() const;
-    const std::string& getTipTratament() const;
 
     int durataTotala() const override;
     float calcPretFinal(bool angajatExperimentat, plata tipPlata, bool clientFidel) const override;

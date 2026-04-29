@@ -1,8 +1,6 @@
 #ifndef UNGHII_H
 #define UNGHII_H
-#include <string>
-#include <iostream>
-#include <memory>
+
 #include "Serviciu.h"
 
 class Unghii : public Serviciu{

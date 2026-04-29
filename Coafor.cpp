@@ -5,7 +5,6 @@ Coafor::Coafor(float pret, int durata, bool vopsit, const std::string& lungimePa
 
 //getters
 bool Coafor::getVopsit() const{ return vopsit; }
-const std::string& Coafor::getLungimePar() const{ return lungimePar; }
 
 int Coafor::durataTotala() const{
     int durataFinala = durata;

@@ -17,8 +17,6 @@ Client::~Client() {
     numarClienti--;
 }
 
-int Client::getNrVizite() const{ return nrVizite; }
-void Client::incrementeazaVizite(){ ++nrVizite; }
 bool Client::esteClientFidel() const{ return nrVizite >= 5; }
 int Client::getNrClienti(){ return numarClienti; }
 

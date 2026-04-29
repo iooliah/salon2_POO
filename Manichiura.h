@@ -1,8 +1,5 @@
 #ifndef MANICHIURA_H
 #define MANICHIURA_H
-#include <string>
-#include <memory>
-#include <iostream>
 
 #include "Unghii.h"
 

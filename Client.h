@@ -15,8 +15,6 @@ public:
     Client(const Client& other);
     ~Client() override;
 
-    int getNrVizite() const;
-    void incrementeazaVizite();
     bool esteClientFidel() const;  //>=5 vizite => reducere
     static int getNrClienti();
 
