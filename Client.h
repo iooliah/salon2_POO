@@ -1,9 +1,10 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 #include <memory>
-#include "Persoana.h"
 
-class Client : public Persoana {
+class Persoana;
+
+class Client : public Persoana{
 private:
     int nrVizite;
     static int numarClienti;
@@ -16,7 +17,7 @@ public:
 
     int getNrVizite() const;
     void incrementeazaVizite();
-    bool esteClientFidel() const;  //>= 5 vizite => reducere speciala
+    bool esteClientFidel() const;  //>=5 vizite => reducere
     static int getNrClienti();
 
     std::string getRol() const override;

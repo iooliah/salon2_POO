@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 #include <memory>
-#include "Serviciu.h"
+class Serviciu;
 
 class Unghii : public Serviciu{
 protected:

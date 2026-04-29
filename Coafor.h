@@ -3,8 +3,8 @@
 #include <string>
 #include <iostream>
 #include <memory>
-#include "Serviciu.h"
 
+class Serviciu;
 class Coafor : public Serviciu {
 private:
     bool vopsit;

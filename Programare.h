@@ -1,12 +1,10 @@
 #ifndef PROGRAMARE_H
 #define PROGRAMARE_H
-#include "Serviciu.h"
-#include "Angajat.h"
-#include "Client.h"
-#include "Coafor.h"
 #include <memory>
 #include <string>
 #include <vector>
+
+class Serviciu; class Angajat; class Client;
 
 class Programare{
 private:
@@ -26,7 +24,7 @@ public:
     //copy and swap
     Programare(const Programare& other);
     Programare& operator=(Programare other);
-    friend void swap(Programare& a, Programare& b) noexcept;
+    friend void swap(Programare& a, Programare& b);
     ~Programare() = default;
 
     const Client& getClient() const;
@@ -39,6 +37,7 @@ public:
     void setOra(const std::string& ora);
     void setTipPlata(plata tipPlata);
 
+    int getDurataTotala() const;
     bool areServiciuCuTimpSuplimentar() const;             //pentru dynamic_pointer_cast
     std::string descriereProgramare() const;
 

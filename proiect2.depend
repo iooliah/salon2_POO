@@ -12,9 +12,28 @@
 
 1777205415 source:d:\facultate\an 1\sem 2\poo\proiect2\manichiura.cpp
 
-1777205564 source:d:\facultate\an 1\sem 2\poo\proiect2\persoana.cpp
+1777380527 source:d:\facultate\an 1\sem 2\poo\proiect2\persoana.cpp
+	"Persoana.h"
 
 1777204990 source:d:\facultate\an 1\sem 2\poo\proiect2\programare.cpp
 
-1777204960 source:d:\facultate\an 1\sem 2\poo\proiect2\serviciu.cpp
+1777383395 source:d:\facultate\an 1\sem 2\poo\proiect2\serviciu.cpp
+	"Serviciu.h"
+
+1777478526 source:d:\facultate\an 1\sem 2\poo\proiect2\exceptii.cpp
+	"Exceptii.h"
+
+1777478421 d:\facultate\an 1\sem 2\poo\proiect2\exceptii.h
+	<stdexcept>
+	<string>
+
+1777409863 d:\facultate\an 1\sem 2\poo\proiect2\persoana.h
+	<string>
+	<iostream>
+	<memory>
+
+1777410080 d:\facultate\an 1\sem 2\poo\proiect2\serviciu.h
+	<memory>
+	<string>
+	<iostream>
 

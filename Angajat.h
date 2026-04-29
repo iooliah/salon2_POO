@@ -3,7 +3,8 @@
 #include <string>
 #include <iostream>
 #include <memory>
-#include "Persoana.h"
+
+class Persoana;
 
 class Angajat : public Persoana {
 private:

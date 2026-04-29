@@ -3,7 +3,8 @@
 #include <string>
 #include <iostream>
 #include <memory>
-#include "Serviciu.h"
+
+class Serviciu;
 
 class Cosmetica : public Serviciu {
 private:

@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 #include <memory>
-#include "Unghii.h"
+class Unghii;
 
 class Pedichiura : public Unghii{
 protected:
