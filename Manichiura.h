@@ -4,7 +4,7 @@
 #include <memory>
 #include <iostream>
 
-class Unghii;
+#include "Unghii.h"
 
 class Manichiura : public Unghii{
 protected:

@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 #include <memory>
-class Serviciu;
+#include "Serviciu.h"
 
 class Unghii : public Serviciu{
 protected:
@@ -23,7 +23,7 @@ public:
     std::string descriereServiciu() const override;
     std::shared_ptr<Serviciu> clone() const override;
 
-private:
+protected:
     void afiseazaVirtual(std::ostream& os) const override;
 };
 

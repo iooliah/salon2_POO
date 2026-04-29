@@ -5,7 +5,7 @@
 Pedichiura::Pedichiura(const std::string& nume,float pret, int durata, bool gel, bool design, bool masaj) : Unghii(nume, pret, durata, gel, design), masaj(masaj){}
 
 //getter
-bool Pedichiura::getMaaj() const{ return masaj;}
+bool Pedichiura::getMasaj() const{ return masaj;}
 
 int Pedichiura::durataTotala() const{
     int durataFinala = Unghii::durataTotala();

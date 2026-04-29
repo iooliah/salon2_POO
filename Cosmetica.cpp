@@ -1,7 +1,8 @@
 #include "Cosmetica.h"
 
 //constructor
-Cosmetica::Cosmetica(float pret, int durata, bool masca, const std::string& tipTratament) : Serviciu("Cosmetica", pret, durata), masca(masca), tipTratament(tipTratament){}
+Cosmetica::Cosmetica(float pret, int durata, bool masca, const std::string& tipTratament)
+    : Serviciu("Cosmetica", pret, durata), masca(masca), tipTratament(tipTratament){}
 
 //getters
 bool Cosmetica::getMasca() const{ return masca; }
@@ -55,11 +56,11 @@ std::string Cosmetica::descriereServiciu() const{
 }
 
 //clone
-std::shared_ptr<Serviciu> Cosmetica::clone() const{
+std::shared_ptr<Serviciu> Cosmetica::clone() const {
     return std::make_shared<Cosmetica>(*this);
 }
 
-void Cosmetica::afiseazaVirtual(std::ostream& os) const{
+void Cosmetica::afiseazaVirtual(std::ostream& os) const {
     Serviciu::afiseazaVirtual(os);
-    os<< ", Tip: Cosmetica"<< ", Tratament: "<<tipTratament<< ", Masca: " <<(masca ? "da" : "nu");
+    os << ", Tip: Cosmetica" << ", Tratament: " << tipTratament << ", Masca: " << (masca ? "da" : "nu");
 }

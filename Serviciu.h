@@ -33,7 +33,7 @@ public:
     //interfata non-virtuala pentru afisare
     friend std::ostream& operator<<(std::ostream& os, const Serviciu& s);
 
-private:
+protected:
     virtual void afiseazaVirtual(std::ostream& os) const;
 };
 

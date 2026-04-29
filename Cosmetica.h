@@ -3,13 +3,13 @@
 #include <string>
 #include <iostream>
 #include <memory>
-
-class Serviciu;
+#include "Serviciu.h"
 
 class Cosmetica : public Serviciu {
 private:
     bool masca;
     std::string tipTratament;                   //"facial", "corp", "par"
+    void afiseazaVirtual(std::ostream& os) const override;
 
 public:
     Cosmetica() = default;
@@ -23,8 +23,7 @@ public:
     std::string descriereServiciu() const override;
     std::shared_ptr<Serviciu> clone() const override;
 
-private:
-    void afiseazaVirtual(std::ostream& os) const override;
+
 };
 
 #endif

@@ -24,17 +24,13 @@ public:
     void afiseaza(std::ostream& os) const;
 
     virtual std::string getRol() const = 0;
-    virtual std::unique_ptr<Persoana> clone() const = 0;
+    virtual std::shared_ptr<Persoana> clone() const = 0;
 
     //interfata non-virtuala pentru afisare
     friend std::ostream& operator<<(std::ostream& os, const Persoana& p);
 
-private:
+protected:
     virtual void afiseazaVirtual(std::ostream& os) const;
 };
-
-//operator <<
-//std::ostream& operator<<(std::ostream& os, const Persoana& p);
-
 
 #endif // PERSOANA_H

@@ -1,21 +1,32 @@
 # depslib dependency file v1.0
-1777204926 source:d:\facultate\an 1\sem 2\poo\proiect2\angajat.cpp
+1777494456 source:d:\facultate\an 1\sem 2\poo\proiect2\angajat.cpp
+	"Angajat.h"
 
-1777205020 source:d:\facultate\an 1\sem 2\poo\proiect2\client.cpp
+1777494367 source:d:\facultate\an 1\sem 2\poo\proiect2\client.cpp
+	"Client.h"
 
-1777205449 source:d:\facultate\an 1\sem 2\poo\proiect2\coafor.cpp
+1777403935 source:d:\facultate\an 1\sem 2\poo\proiect2\coafor.cpp
+	"Coafor.h"
 
-1777205507 source:d:\facultate\an 1\sem 2\poo\proiect2\cosmetica.cpp
+1777495379 source:d:\facultate\an 1\sem 2\poo\proiect2\cosmetica.cpp
+	"Cosmetica.h"
 
 1777232755 source:d:\facultate\an 1\sem 2\poo\proiect2\main.cpp
 	<iostream>
 
-1777205415 source:d:\facultate\an 1\sem 2\poo\proiect2\manichiura.cpp
+1777384192 source:d:\facultate\an 1\sem 2\poo\proiect2\manichiura.cpp
+	"Manichiura.h"
 
-1777380527 source:d:\facultate\an 1\sem 2\poo\proiect2\persoana.cpp
+1777494196 source:d:\facultate\an 1\sem 2\poo\proiect2\persoana.cpp
 	"Persoana.h"
 
-1777204990 source:d:\facultate\an 1\sem 2\poo\proiect2\programare.cpp
+1777495646 source:d:\facultate\an 1\sem 2\poo\proiect2\programare.cpp
+	<utility>
+	"Programare.h"
+	"Manichiura.h"
+	"Pedichiura.h"
+	"Unghii.h"
+	"Coafor.h"
 
 1777383395 source:d:\facultate\an 1\sem 2\poo\proiect2\serviciu.cpp
 	"Serviciu.h"
@@ -27,13 +38,66 @@
 	<stdexcept>
 	<string>
 
-1777409863 d:\facultate\an 1\sem 2\poo\proiect2\persoana.h
+1777494556 d:\facultate\an 1\sem 2\poo\proiect2\persoana.h
 	<string>
 	<iostream>
 	<memory>
 
-1777410080 d:\facultate\an 1\sem 2\poo\proiect2\serviciu.h
+1777495446 d:\facultate\an 1\sem 2\poo\proiect2\serviciu.h
 	<memory>
 	<string>
 	<iostream>
+
+1777494413 d:\facultate\an 1\sem 2\poo\proiect2\angajat.h
+	<string>
+	<iostream>
+	<memory>
+	"Persoana.h"
+
+1777494931 d:\facultate\an 1\sem 2\poo\proiect2\client.h
+	"Persoana.h"
+
+1777495094 d:\facultate\an 1\sem 2\poo\proiect2\coafor.h
+	<string>
+	<iostream>
+	<memory>
+	"Serviciu.h"
+
+1777495147 d:\facultate\an 1\sem 2\poo\proiect2\cosmetica.h
+	<string>
+	<iostream>
+	<memory>
+	"Serviciu.h"
+
+1777383826 source:d:\facultate\an 1\sem 2\poo\proiect2\unghii.cpp
+	"Unghii.h"
+
+1777495475 d:\facultate\an 1\sem 2\poo\proiect2\unghii.h
+	<string>
+	<iostream>
+	<memory>
+	"Serviciu.h"
+
+1777492747 d:\facultate\an 1\sem 2\poo\proiect2\manichiura.h
+	<string>
+	<memory>
+	<iostream>
+	"Unghii.h"
+
+1777492964 source:d:\facultate\an 1\sem 2\poo\proiect2\pedichiura.cpp
+	"Pedichiura.h"
+
+1777492750 d:\facultate\an 1\sem 2\poo\proiect2\pedichiura.h
+	<string>
+	<iostream>
+	<memory>
+	"Unghii.h"
+
+1777492723 d:\facultate\an 1\sem 2\poo\proiect2\programare.h
+	<memory>
+	<string>
+	<vector>
+	"Client.h"
+	"Angajat.h"
+	"Serviciu.h"
 

@@ -11,7 +11,7 @@ Angajat::Angajat(const std::string& nume, const std::string& prenume, const std:
     numarAngajati++;
 }
 
-Angajat::~Angajat()
+Angajat::~Angajat(){
     numarAngajati--;
 }
 
@@ -27,14 +27,15 @@ std::string Angajat::getRol() const{
     return "Angajat";
 }
 
-std::shared_ptr<Persoana> Angajat::clone() const{
+std::shared_ptr<Persoana> Angajat::clone() const {
     return std::make_shared<Angajat>(*this);
 }
 
-void Angajat::afiseazaVirtual(std::ostream& os) const{
+
+void Angajat::afiseazaVirtual(std::ostream& os) const {
     Persoana::afiseazaVirtual(os);
-    os<< ", Experienta: " <<experienta<< " ani" << ", Specializare: " <<specializare;
-    if(areExperienta()){
-        os<< ", Angajat experimentat";
+    os << ", Experienta: " << experienta << " ani" << ", Specializare: " << specializare;
+    if (areExperienta()) {
+        os << ", Angajat experimentat";
     }
 }

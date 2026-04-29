@@ -4,7 +4,9 @@
 #include <string>
 #include <vector>
 
-class Serviciu; class Angajat; class Client;
+#include "Client.h"
+#include "Angajat.h"
+#include "Serviciu.h"
 
 class Programare{
 private:

@@ -2,7 +2,7 @@
 
 int Client::numarClienti = 0;
 
-Client::Client() : Persoana(), nrVizite(0){
+Client::Client() : Persoana(), nrVizite(0) {
     numarClienti++;
 }
 
@@ -22,9 +22,10 @@ int Client::getNrClienti(){ return numarClienti; }
 std::string Client::getRol() const{return "Client"; }
 
 
-std::shared_ptr<Persoana> Client::clone() const{
+std::shared_ptr<Persoana> Client::clone() const {
     return std::make_shared<Client>(*this);
 }
+
 
 void Client::afiseazaVirtual(std::ostream& os) const{
     Persoana::afiseazaVirtual(os);

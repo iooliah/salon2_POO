@@ -3,12 +3,13 @@
 #include <string>
 #include <iostream>
 #include <memory>
+#include "Serviciu.h"
 
-class Serviciu;
-class Coafor : public Serviciu {
+class Coafor : public Serviciu{
 private:
     bool vopsit;
     std::string lungimePar;       //"scurt", "mediu", "lung"
+    void afiseazaVirtual(std::ostream& os) const override;
 
 public:
     Coafor() = default;
@@ -22,8 +23,6 @@ public:
     std::string descriereServiciu() const override;
     std::shared_ptr<Serviciu> clone() const override;
 
-private:
-    void afiseazaVirtual(std::ostream& os) const override;
 };
 
 #endif

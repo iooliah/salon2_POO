@@ -3,6 +3,7 @@
 #include "Manichiura.h"
 #include "Pedichiura.h"
 #include "Unghii.h"
+#include "Coafor.h"
 
 Programare::Programare(const Client& client, const Angajat& angajat, std::shared_ptr<Serviciu> serviciu, const std::string& data, const std::string& ora, plata tipPlata)
 : client(client), angajat(angajat), serviciu(serviciu), data(data), ora(ora), tipPlata(tipPlata){}
@@ -86,11 +87,11 @@ float Programare::calcCostFinal(const std::vector<Programare>& toateProgramarile
 
 
 //dynamic_pointer_cast
-bool Programare::areServiciuCuTimpSuplimentar() const
-    Manichiura manichiura = std::dynamic_pointer_cast<Manichiura>(serviciu);
-    Pedichiura pedichiura = std::dynamic_pointer_cast<Pedichiura>(serviciu);
-    Unghii unghii = std::dynamic_pointer_cast<Unghii>(serviciu);
-    Coafor coafor = std::dynamic_pointer_cast<Coafor>(serviciu);
+bool Programare::areServiciuCuTimpSuplimentar() const{
+    auto manichiura = std::dynamic_pointer_cast<Manichiura>(serviciu);
+    auto pedichiura = std::dynamic_pointer_cast<Pedichiura>(serviciu);
+    auto unghii = std::dynamic_pointer_cast<Unghii>(serviciu);
+    auto coafor = std::dynamic_pointer_cast<Coafor>(serviciu);
 
     if(manichiura && (manichiura->getCrema() || manichiura->getGel() || manichiura->getDesign()) ){
         return true;

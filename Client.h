@@ -1,8 +1,7 @@
 #ifndef CLIENT_H
 #define CLIENT_H
-#include <memory>
 
-class Persoana;
+#include "Persoana.h";
 
 class Client : public Persoana{
 private:
@@ -11,7 +10,7 @@ private:
     void afiseazaVirtual(std::ostream& os) const override;
 
 public:
-    Client() = default;
+    Client();
     Client(const std::string& nume, const std::string& prenume, const std::string& telefon, int nrVizite = 0);
     ~Client() override;
 
@@ -21,6 +20,7 @@ public:
     static int getNrClienti();
 
     std::string getRol() const override;
+    std::shared_ptr<Persoana> clone() const override;
 };
 
 

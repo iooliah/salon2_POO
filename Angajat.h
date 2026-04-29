@@ -4,7 +4,7 @@
 #include <iostream>
 #include <memory>
 
-class Persoana;
+#include "Persoana.h"
 
 class Angajat : public Persoana {
 private:
@@ -14,7 +14,7 @@ private:
     void afiseazaVirtual(std::ostream& os) const override;
 
 public:
-    Angajat() = default;
+    Angajat();
     Angajat(const std::string& nume, const std::string& prenume, const std::string& telefon, int experienta, const std::string& specializare);
     ~Angajat() override;                    //rescrie o functie virtuala din clasa de baza Persoana
 
@@ -24,6 +24,7 @@ public:
 
     bool areExperienta() const;             //>= 5 ani => +10 lei
     std::string getRol() const override;    //rescrie o functie virtuala din clasa de baza Persoana
+    std::shared_ptr<Persoana> clone() const override;
 };
 
 

@@ -12,6 +12,13 @@
 #include "Cosmetica.h"
 #include "Exceptii.h"
 
+//forward declarations
+Client& cautaClient(std::vector<Client>& clienti, const std::string& nume, const std::string& prenume);
+Angajat& cautaAngajat(std::vector<Angajat>& angajati, const std::string& nume, const std::string& prenume);
+bool specializareBuna(const Angajat& angajat, const std::string& tipServiciu);
+bool angajatDisponibil(const std::vector<Programare>& programari, const Angajat& angajat, const std::string& data, const std::string& ora);
+plata plataFinal(const std::string& text);
+
 void citesteClienti(std::vector<Client>& clienti, const std::string& fis){
     std::ifstream fin(fis);
     std::string nume, prenume, telefon;
@@ -73,13 +80,13 @@ void citesteProgramari(std::vector<Programare>& programari,std::vector<Client>& 
                 throw ProgramareInvalidaExceptie("tip serviciu invalid");
             }
 
-            if(!angajatDisponibil(programari, angajat, data, ora, serviciu->durataTotala())){
+            if(!angajatDisponibil(programari, angajat, data, ora)){
                 throw ProgramareInvalidaExceptie("angajat ocupat");
             }
             programari.emplace_back(client, angajat, serviciu, data, ora, plataFinal(plataText));
         }
         catch(const SalonExceptii& e){
-            std::cout<< "Programare ignorata: " << e.what() <<endl;
+            std::cout<< "Programare ignorata: " << e.what() <<std::endl;
         }
     }
 }
@@ -91,6 +98,13 @@ Client& cautaClient(std::vector<Client>& clienti, const std::string& nume, const
         }
     }
     throw ClientInexistentExceptie();
+}
+Angajat& cautaAngajat(std::vector<Angajat>& angajati, const std::string& nume, const std::string& prenume){
+    for(auto& a : angajati){
+        if(a.getNume() == nume && a.getPrenume() == prenume)
+            return a;
+    }
+    throw AngajatInexistentExceptie();
 }
 
 bool specializareBuna(const Angajat& angajat, const std::string& tipServiciu){
@@ -108,7 +122,7 @@ bool specializareBuna(const Angajat& angajat, const std::string& tipServiciu){
 }
 bool angajatDisponibil(const std::vector<Programare>& programari, const Angajat& angajat, const std::string& data, const std::string& ora) {
     for(const auto& p : programari){
-        if(p.getData() == data & p.getOra() == ora && p.getAngajat().getNume() == angajat.getNume() && p.getAngajat().getPrenume() == angajat.getPrenume()){
+        if(p.getData() == data && p.getOra() == ora && p.getAngajat().getNume() == angajat.getNume() && p.getAngajat().getPrenume() == angajat.getPrenume()){
             return false;
         }
     }
@@ -138,7 +152,7 @@ void adaugaClient(std::vector<Client>& clienti){
     clienti.emplace_back(nume, prenume, telefon, nrVizite);
 
     std::ofstream fout("clienti.txt", std::ios_base::app);
-    fout<< nume << " " << prenume << " " << telefon << " " << nrVizite <<endl;
+    fout<< nume << " " << prenume << " " << telefon << " " << nrVizite <<std::endl;
     std::cout<< "Client adaugat.\n";
 }
 
@@ -215,7 +229,7 @@ void adaugaProgramare(std::vector<Programare>& programari, std::vector<Client>& 
     std::cout<< "Ora: ";
     std::cin>> ora;
 
-    if(angajatDisponibil(programari, angajat, data, ora)) == 0){
+    if(!angajatDisponibil(programari, angajat, data, ora)){
         throw ProgramareInvalidaExceptie("angajat ocupat");
     }
 
@@ -226,7 +240,7 @@ void adaugaProgramare(std::vector<Programare>& programari, std::vector<Client>& 
 
     std::ofstream fout("programari.txt", std::ios_base::app);
     fout<<client.getNume()<< " " <<client.getPrenume()<< " " <<angajat.getNume()<< " " <<angajat.getPrenume()<< " " <<
-    tipServiciu<< " " <<data<< " " <<ora<< " " <<plataText<< " " <<serviciu->getPret()<< " " <<serviciu->getDurata()<<endl;
+    tipServiciu<< " " <<data<< " " <<ora<< " " <<plataText<< " " <<serviciu->getPret()<< " " <<serviciu->getDurata()<<std::endl;
 
     std::cout<<"Programare adaugata.\n";
 }
@@ -261,19 +275,19 @@ int main()
             try{
                 if(optiune == 1){                       //afisez clientii din fisiserul "clienti.txt"
                     for(const auto& c : clienti){
-                        std::cout<< c <<endl;
+                        std::cout<< c <<std::endl;
                     }
                 }else if(optiune == 2){                 //afisez angajatii din fisiserul "angajati.txt"
                     for(const auto& a : angajati){
-                        std::cout<< a <<endl;
+                        std::cout<< a <<std::endl;
                     }
                 }else if(optiune == 3){                 //afisez programarile din fisierul "programari.txt"
                     for(const auto& p : programari){
-                        std::cout<< p <<endl;
+                        std::cout<< p <<std::endl;
                     }
                 }else if(optiune == 4){
                     for(const auto& p : programari){
-                        std::cout << p.descriereProgramare() <<endl;              //afisez fiecare programare
+                        std::cout << p.descriereProgramare() <<std::endl;              //afisez fiecare programare
                         std::cout << "Cost final: " << p.calcCostFinal(programari) << " lei\n";      //afisez suma
                     }
                 }else if(optiune == 5){
@@ -306,7 +320,7 @@ int main()
                 }else if(optiune == 9){             //afisez ce servicii necesita timp suplimentar
                     for(const auto& p : programari){
                         if(p.areServiciuCuTimpSuplimentar()){
-                            std::cout<< p.descriereProgramare()<<endl;
+                            std::cout<< p.descriereProgramare()<<std::endl;
                         }
                     }
                 }else if(optiune == 10){
@@ -316,19 +330,19 @@ int main()
                 }
             }
             catch(const SalonExceptii& e) {
-                std::cout<< "Eroare: " <<e.what()<<endl;
+                std::cout<< "Eroare: " <<e.what()<<std::endl;
             }
 
         }while(optiune!=10);
 
-        std::cout<< "\nTotal clienti: "<< Client::getNrClienti() <<endl;
-        std::cout<< "Total angajati: "<< Angajat::getNrAngajati() <<endl;
+        std::cout<< "\nTotal clienti: "<< Client::getNrClienti() <<std::endl;
+        std::cout<< "Total angajati: "<< Angajat::getNrAngajati() <<std::endl;
     }
     catch(const SalonExceptii& e){
-        std::cout<< "Eroare salon: " << e.what() <<endl;
+        std::cout<< "Eroare salon: " << e.what() <<std::endl;
     }
     catch(const std::exception& e){
-        std::cout<< "Eroare generala: " << e.what() <<endl;
+        std::cout<< "Eroare generala: " << e.what() <<std::endl;
     }
     return 0;
 }
