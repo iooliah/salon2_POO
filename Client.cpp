@@ -9,6 +9,9 @@ Client::Client() : Persoana(), nrVizite(0) {
 Client::Client(const std::string& nume, const std::string& prenume, const std::string& telefon, int nrVizite) : Persoana(nume, prenume, telefon), nrVizite(nrVizite){
     numarClienti++;
 }
+Client::Client(const Client& other) : Persoana(other), nrVizite(other.nrVizite){
+    numarClienti++;
+}
 
 Client::~Client() {
     numarClienti--;

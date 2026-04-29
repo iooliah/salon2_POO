@@ -11,6 +11,10 @@ Angajat::Angajat(const std::string& nume, const std::string& prenume, const std:
     numarAngajati++;
 }
 
+Angajat::Angajat(const Angajat& other) : Persoana(other), experienta(other.experienta), specializare(other.specializare){
+    numarAngajati++;
+}
+
 Angajat::~Angajat(){
     numarAngajati--;
 }

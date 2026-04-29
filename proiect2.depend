@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1777494456 source:d:\facultate\an 1\sem 2\poo\proiect2\angajat.cpp
+1777499566 source:d:\facultate\an 1\sem 2\poo\proiect2\angajat.cpp
 	"Angajat.h"
 
-1777494367 source:d:\facultate\an 1\sem 2\poo\proiect2\client.cpp
+1777499506 source:d:\facultate\an 1\sem 2\poo\proiect2\client.cpp
 	"Client.h"
 
 1777403935 source:d:\facultate\an 1\sem 2\poo\proiect2\coafor.cpp
@@ -11,8 +11,21 @@
 1777495379 source:d:\facultate\an 1\sem 2\poo\proiect2\cosmetica.cpp
 	"Cosmetica.h"
 
-1777232755 source:d:\facultate\an 1\sem 2\poo\proiect2\main.cpp
+1777499868 source:d:\facultate\an 1\sem 2\poo\proiect2\main.cpp
 	<iostream>
+	<fstream>
+	<sstream>
+	<vector>
+	<memory>
+	<string>
+	"Client.h"
+	"Angajat.h"
+	"Programare.h"
+	"Manichiura.h"
+	"Pedichiura.h"
+	"Coafor.h"
+	"Cosmetica.h"
+	"Exceptii.h"
 
 1777384192 source:d:\facultate\an 1\sem 2\poo\proiect2\manichiura.cpp
 	"Manichiura.h"
@@ -48,13 +61,13 @@
 	<string>
 	<iostream>
 
-1777494413 d:\facultate\an 1\sem 2\poo\proiect2\angajat.h
+1777499532 d:\facultate\an 1\sem 2\poo\proiect2\angajat.h
 	<string>
 	<iostream>
 	<memory>
 	"Persoana.h"
 
-1777496568 d:\facultate\an 1\sem 2\poo\proiect2\client.h
+1777499477 d:\facultate\an 1\sem 2\poo\proiect2\client.h
 	"Persoana.h"
 
 1777495094 d:\facultate\an 1\sem 2\poo\proiect2\coafor.h

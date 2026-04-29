@@ -10,4 +10,5 @@ Stan Alexandra 0765432101 4
 Matei Bianca 0749876543 7
 Radu Cristina 0726789012 3
 Neagu Diana 0751122334 1
-Ilie Gabriela 0733344556 2
+Ilie Gabriela 0733344556 2Bobo Nick 0743188223 0
+Bob Nig 0700000000000 1

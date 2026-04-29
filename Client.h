@@ -12,6 +12,7 @@ private:
 public:
     Client();
     Client(const std::string& nume, const std::string& prenume, const std::string& telefon, int nrVizite = 0);
+    Client(const Client& other);
     ~Client() override;
 
     int getNrVizite() const;

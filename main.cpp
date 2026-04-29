@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <vector>
 #include <memory>
 #include <string>
@@ -54,11 +55,19 @@ void citesteAngajati(std::vector<Angajat>& angajati, const std::string& fis){
     }
 }
 
-void citesteProgramari(std::vector<Programare>& programari,std::vector<Client>& clienti,std::vector<Angajat>& angajati,const std::string& fis){
-    std::ifstream fin(fis);
-    std::string numeClient, prenumeClient, numeAngajat, prenumeAngajat, tipServiciu, data, ora, plataText;
 
-    while(fin>>numeClient>>prenumeClient>>numeAngajat>>prenumeAngajat>>tipServiciu>>data>>ora>>plataText){
+void citesteProgramari(std::vector<Programare>& programari, std::vector<Client>& clienti, std::vector<Angajat>& angajati, const std::string& fis){
+    std::ifstream fin(fis);
+    std::string linie;
+
+    while(std::getline(fin, linie)){
+        if(linie.empty()) continue;
+        std::istringstream iss(linie);
+        std::string numeClient, prenumeClient, numeAngajat, prenumeAngajat, tipServiciu, data, ora, plataText;
+
+        if(!(iss >> numeClient >> prenumeClient >> numeAngajat >> prenumeAngajat >> tipServiciu >> data >> ora >> plataText)){
+            continue;
+        }
         try{
             float pret = pretFix(tipServiciu);
             int durata = durataFixa(tipServiciu);
@@ -74,21 +83,21 @@ void citesteProgramari(std::vector<Programare>& programari,std::vector<Client>& 
 
             if(tipServiciu == "MANICHIURA"){
                 bool gel, design, crema;
-                fin>> gel >> design >> crema;
+                iss >> gel >> design >> crema;
                 serviciu = std::make_shared<Manichiura>("Manichiura", pret, durata, gel, design, crema);
             }else if (tipServiciu == "PEDICHIURA"){
                 bool gel, design, masaj;
-                fin>> gel >> design >> masaj;
+                iss >> gel >> design >> masaj;
                 serviciu = std::make_shared<Pedichiura>("Pedichiura", pret, durata, gel, design, masaj);
             }else if (tipServiciu == "COAFOR"){
                 bool vopsit;
                 std::string lungimePar;
-                fin>> vopsit >> lungimePar;
+                iss >> vopsit >> lungimePar;
                 serviciu = std::make_shared<Coafor>(pret, durata, vopsit, lungimePar);
             }else if(tipServiciu == "COSMETICA"){
                 bool masca;
                 std::string tipTratament;
-                fin>> masca >> tipTratament;
+                iss >> masca >> tipTratament;
                 serviciu = std::make_shared<Cosmetica>(pret, durata, masca, tipTratament);
             }else{
                 throw ProgramareInvalidaExceptie("tip serviciu invalid");
@@ -100,7 +109,7 @@ void citesteProgramari(std::vector<Programare>& programari,std::vector<Client>& 
             programari.emplace_back(client, angajat, serviciu, data, ora, plataFinal(plataText));
         }
         catch(const SalonExceptii& e){
-            std::cout<< "Programare ignorata: " << e.what() <<std::endl;
+            std::cout<< "Programare ignorata: " << e.what() << std::endl;
         }
     }
 }
@@ -207,7 +216,7 @@ void adaugaProgramare(std::vector<Programare>& programari, std::vector<Client>& 
         std::cout<< "Crema (0/1): ";
         std::cin>> crema;
 
-        serviciu = std::make_shared<Manichiura>("Manichiura", gel, design, crema);
+        serviciu = std::make_shared<Manichiura>("Manichiura", pret, durata, gel, design, crema);
     }else if(tipServiciu == "PEDICHIURA"){
         bool gel, design, masaj;
         std::cout<< "Gel (0/1): ";
