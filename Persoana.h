@@ -11,10 +11,11 @@ protected:
     std::string telefon;
 
 public:
-    Persoana() = default;
-    Persoana(const std::string& nume, const std::string& prenume, const std::string& telefon);
-    virtual ~Persoana() = default;
+    Persoana() = default;                                                                                 //constructor
+    Persoana(const std::string& nume, const std::string& prenume, const std::string& telefon);            //constructor cu parametri
+    virtual ~Persoana() = default;                                                                        //destructor virtual
 
+    //getters
     const std::string& getNume() const;
     const std::string& getPrenume() const;
     const std::string& getTelefon() const;
@@ -23,14 +24,13 @@ public:
     //interfata non-virtuala
     void afiseaza(std::ostream& os) const;
 
-    virtual std::string getRol() const = 0;
-    virtual std::shared_ptr<Persoana> clone() const = 0;
+    virtual std::string getRol() const = 0;                                                                 //functie virtuala pura
+    virtual std::shared_ptr<Persoana> clone() const = 0;                                                    //copiere polimorfica prin pointer de baza
 
-    //interfata non-virtuala pentru afisare
-    friend std::ostream& operator<<(std::ostream& os, const Persoana& p);
+    friend std::ostream& operator<<(std::ostream& os, const Persoana& p);                                   //operator <<
 
 protected:
-    virtual void afiseazaVirtual(std::ostream& os) const;
+    virtual void afiseazaVirtual(std::ostream& os) const;                                                 //functie virtuala apelata din interfata non-virtuala
 };
 
 #endif // PERSOANA_H

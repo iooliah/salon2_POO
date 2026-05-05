@@ -5,20 +5,20 @@
 
 class Coafor : public Serviciu{
 private:
-    bool vopsit;
-    std::string lungimePar;       //"scurt", "mediu", "lung"
-    void afiseazaVirtual(std::ostream& os) const override;
+    bool vopsit;                                                                    //optiune extra
+    std::string lungimePar;                                                         //"scurt", "mediu", "lung"
+    void afiseazaVirtual(std::ostream& os) const override;                          //afisare virtuala suprascrisa
 
 public:
-    Coafor() = default;
-    Coafor(float pret, int durata, bool vopsit, const std::string& lungimePar);
+    Coafor() = default;                                                             //constructor
+    Coafor(float pret, int durata, bool vopsit, const std::string& lungimePar);     //constructor cu parametri
 
     bool getVopsit() const;
 
     int durataTotala() const override;
     float calcPretFinal(bool angajatExperimentat, plata tipPlata, bool clientFidel) const override;
     std::string descriereServiciu() const override;
-    std::shared_ptr<Serviciu> clone() const override;
+    std::shared_ptr<Serviciu> clone() const override;                                               //clonare polimorfica prin pointer la baza
 
 };
 

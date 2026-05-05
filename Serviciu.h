@@ -13,27 +13,24 @@ protected:
     int durata;
 
 public:
-    Serviciu() = default;
-    Serviciu(const std::string& nume, float pret, int durata);
-    virtual ~Serviciu() = default;
+    Serviciu() = default;                                                 //constructor
+    Serviciu(const std::string& nume, float pret, int durata);            //constructor cu parametri
+    virtual ~Serviciu() = default;                                        //destructor virtual
 
     void afiseaza(std::ostream& os) const;
 
     //functii virtuale pure
-    virtual float calcPretFinal(bool angajatExperimentat, plata tipPlata, bool clientFidel) const = 0;
+    virtual float calcPretFinal(bool angajatExperimentat, plata tipPlata, bool clientFidel) const = 0;      //suma finala dupa reduceri si optiuni extra
     virtual std::string descriereServiciu() const = 0;
-    virtual int durataTotala() const = 0;
+    virtual int durataTotala() const = 0;                                                                   //durata finala, incluzand optiunile extra
 
-    virtual std::shared_ptr<Serviciu> clone() const = 0;
+    virtual std::shared_ptr<Serviciu> clone() const = 0;                   //clonare polimorfica prin pointer de baza(in Programare)
 
-    //interfata non-virtuala pentru afisare
-    friend std::ostream& operator<<(std::ostream& os, const Serviciu& s);
+    friend std::ostream& operator<<(std::ostream& os, const Serviciu& s);  //operator<<
 
 protected:
-    virtual void afiseazaVirtual(std::ostream& os) const;
+    virtual void afiseazaVirtual(std::ostream& os) const;                  //functie virtuala apelata din interfata non-virtuala
 };
-
-//std::ostream& operator<<(std::ostream& os, const Serviciu& s);
 
 
 #endif // SERVICIU_H

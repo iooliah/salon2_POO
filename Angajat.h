@@ -10,21 +10,22 @@ class Angajat : public Persoana {
 private:
     int experienta;
     std::string specializare;
-    static int numarAngajati;
-    void afiseazaVirtual(std::ostream& os) const override;
+    static int numarAngajati;                                        //pentru numararea angajatilor
+    void afiseazaVirtual(std::ostream& os) const override;           //afisare virtuala suprascrisa in clasa derivata
 
 public:
-    Angajat();
+    Angajat();                                                       //constructor
     Angajat(const std::string& nume, const std::string& prenume, const std::string& telefon, int experienta, const std::string& specializare);
-    Angajat(const Angajat& other);
-    ~Angajat() override;                    //rescrie o functie virtuala din clasa de baza Persoana
+    Angajat(const Angajat& other);                                   //constructor copiere
+    ~Angajat() override;                                             //destructor virtual suprascris din Persoana
 
+    //getters
     const std::string& getSpecializare() const;
     static int getNrAngajati();
 
-    bool areExperienta() const;             //>= 5 ani => +10 lei
-    std::string getRol() const override;    //rescrie o functie virtuala din clasa de baza Persoana
-    std::shared_ptr<Persoana> clone() const override;
+    bool areExperienta() const;                             //functie care verifica experienta; >= 5 ani => +10 lei
+    std::string getRol() const override;                    //functie virtuala suprascrisa din Persoana
+    std::shared_ptr<Persoana> clone() const override;       //clonare polimorfica prin pointer la baza
 };
 
 

@@ -5,20 +5,18 @@
 
 class Cosmetica : public Serviciu {
 private:
-    bool masca;
-    std::string tipTratament;                   //"facial", "corp", "par"
-    void afiseazaVirtual(std::ostream& os) const override;
+    bool masca;                                                             //optiune extra
+    std::string tipTratament;                                               //"facial", "corp", "par"
+    void afiseazaVirtual(std::ostream& os) const override;                  //afisare virtuala suprascrisa
 
 public:
-    Cosmetica() = default;
-    Cosmetica(float pret, int durata, bool masca, const std::string& tipTratament);
+    Cosmetica() = default;                                                            //constructor
+    Cosmetica(float pret, int durata, bool masca, const std::string& tipTratament);   //constructor cu parametri
 
     int durataTotala() const override;
     float calcPretFinal(bool angajatExperimentat, plata tipPlata, bool clientFidel) const override;
     std::string descriereServiciu() const override;
-    std::shared_ptr<Serviciu> clone() const override;
-
-
+    std::shared_ptr<Serviciu> clone() const override;                                               //clonare polimorfica prin pointer la baza
 };
 
 #endif

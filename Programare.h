@@ -35,7 +35,7 @@ public:
     bool areServiciuCuTimpSuplimentar() const;             //pentru dynamic_pointer_cast
     std::string descriereProgramare() const;
 
-    //calcule cu apel virtual prin pointer de baza
+    //calcul cu apel virtual prin pointer de baza
     float calcCostFinal(const std::vector<Programare>& toateProgramarile) const;
 
     static int numaraProgramariClientZi(const std::vector<Programare>& programari, const Client& client, const std::string& data);
