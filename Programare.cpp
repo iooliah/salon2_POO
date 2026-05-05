@@ -6,17 +6,17 @@
 #include "Coafor.h"
 
 Programare::Programare(const Client& client, const Angajat& angajat, std::shared_ptr<Serviciu> serviciu, const std::string& data, const std::string& ora, plata tipPlata)
-: client(client), angajat(angajat), serviciu(serviciu), data(data), ora(ora), tipPlata(tipPlata){}
+: client(client), angajat(angajat), serviciu(serviciu), data(data), ora(ora), tipPlata(tipPlata){}   //constructor
 
 //constructor copiere
 Programare::Programare(const Programare& other) : client(other.client), angajat(other.angajat), serviciu(other.serviciu ? other.serviciu->clone() : nullptr),data(other.data), ora(other.ora), tipPlata(other.tipPlata) {}
 
 //copy and swap
-Programare& Programare::operator=(Programare other){
+Programare& Programare::operator=(Programare other){        //operator =
     swap(*this, other);
     return *this;
 }
-void swap(Programare& a, Programare& b){
+void swap(Programare& a, Programare& b){            //fct friend folosita pt copy and swap
     using std::swap;
     swap(a.client, b.client);
     swap(a.angajat, b.angajat);
@@ -34,11 +34,11 @@ const std::string& Programare::getOra() const{ return ora; }
 
 bool Programare::esteAcelasiClient(const Client& c1, const Client& c2){
     if((c1.getNume()==c2.getNume()) && (c1.getPrenume()==c2.getPrenume()) && (c1.getTelefon()==c2.getTelefon())){
-        return true;
+        return true;            //daca numele,prenumele si telefonul a 2 programari sunt la fel, atunci este acelasi client programat
     }
     return false;
 }
-int Programare::getDurataTotala() const{
+int Programare::getDurataTotala() const{         //apel virtual prin pointer la baza Serviciu
     return serviciu->durataTotala();
 }
 
@@ -46,33 +46,32 @@ int Programare::getDurataTotala() const{
 int Programare::numaraProgramariClientZi(const std::vector<Programare>& programari, const Client& client, const std::string& data){
     int nr=0;
     for(const Programare& programare : programari){
-        if(programare.getData()==data && esteAcelasiClient(programare.getClient(), client)){
-            nr++;
+        if(programare.getData()==data && esteAcelasiClient(programare.getClient(), client)){        //pt a numara cate programari/zi pt un client
+            nr++;                                                                                   //daca in aceeasi data gasesc acelasi client, incrementez nr
         }
     }
     return nr;
 }
 float Programare::calcIncasariZi(const std::vector<Programare>& programari, const std::string& data){
-    float suma = 0;
+    float suma = 0;                                                     //calcul incasari dintr-o zi
     for(const Programare& programare : programari){
-        if(programare.getData() == data){
+        if(programare.getData() == data){                               //daca o programare are data aleasa, adaug costul programarii
             suma += programare.calcCostFinal(programari);
         }
     }
     return suma;
 }
 
-//apelare virtuala prin pointer de baza
-float Programare::calcCostFinal(const std::vector<Programare>& toateProgramarile) const{
+float Programare::calcCostFinal(const std::vector<Programare>& toateProgramarile) const{        //calcul cost final pt un client/zi
     bool angajatExperimentat = angajat.areExperienta();
     bool clientFidel = client.esteClientFidel();
-    float cost = serviciu->calcPretFinal(angajatExperimentat, tipPlata, clientFidel);
+    float cost = serviciu->calcPretFinal(angajatExperimentat, tipPlata, clientFidel);           //apelare virtuala prin pointer la clasa de baza
     int nrProgramariZi = numaraProgramariClientZi(toateProgramarile, client, data);
 
-    if(data == "11.09"){
+    if(data == "11.09"){                    //10% reducere in data de 11 septembrie (ziua deschiderii)
         cost = cost* 0.9f;
     }
-    if(nrProgramariZi >= 2){
+    if(nrProgramariZi >= 2){                //10% reducere daca clientul are mai mult de 2 programari/zi
         cost = cost* 0.9f;
     }
     return cost;
@@ -81,11 +80,13 @@ float Programare::calcCostFinal(const std::vector<Programare>& toateProgramarile
 
 //dynamic_pointer_cast
 bool Programare::areServiciuCuTimpSuplimentar() const{
+    //downcast de la pointer la baza Serviciu la clase derivate pentru a verifica tipul real al serviciului
     auto manichiura = std::dynamic_pointer_cast<Manichiura>(serviciu);
     auto pedichiura = std::dynamic_pointer_cast<Pedichiura>(serviciu);
     auto unghii = std::dynamic_pointer_cast<Unghii>(serviciu);
     auto coafor = std::dynamic_pointer_cast<Coafor>(serviciu);
 
+    //verific daca serviciul are optiuni extra care cresc durata programarii
     if(manichiura && (manichiura->getCrema() || manichiura->getGel() || manichiura->getDesign()) ){
         return true;
     }
@@ -101,7 +102,7 @@ bool Programare::areServiciuCuTimpSuplimentar() const{
     return false;
 }
 
-
+//fct pt descrierea programarii
 std::string Programare::descriereProgramare() const{
     return client.getNumeComplet()+ " are programare la " + serviciu->descriereServiciu() + " cu " + angajat.getNumeComplet() + " pe data de " + data+ " la ora " +ora;
 }

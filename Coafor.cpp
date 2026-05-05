@@ -2,13 +2,12 @@
 
 //constructor
 Coafor::Coafor(float pret, int durata, bool vopsit, const std::string& lungimePar) : Serviciu("Coafor", pret, durata), vopsit(vopsit), lungimePar(lungimePar) {}
-
-//getters
+//getter
 bool Coafor::getVopsit() const{ return vopsit; }
 
 int Coafor::durataTotala() const{
     int durataFinala = durata;
-    if(vopsit){
+    if(vopsit){                         //durata mai mare pt optiune extra si pt cu cat este mai lung parul
         durataFinala += 50;
     }
     if(lungimePar=="mediu"){
@@ -22,7 +21,7 @@ int Coafor::durataTotala() const{
 //calcul pret final
 float Coafor::calcPretFinal(bool angajatExperimentat, plata tipPlata, bool clientFidel) const{
     float cost = pret;
-    if(vopsit){
+    if(vopsit){                     //pret mai mare pt optiune extra si pt cu cat este mai lung parul
         cost += 70;
     }
     if(lungimePar== "mediu"){
@@ -31,19 +30,19 @@ float Coafor::calcPretFinal(bool angajatExperimentat, plata tipPlata, bool clien
         cost += 20;
     }
 
-    if(angajatExperimentat){
+    if(angajatExperimentat){        //daca angajatul este experimentat -> +15lei
         cost += 15;
     }
-    if(clientFidel){
+    if(clientFidel){                //reducere 10% daca clientul este fidel
         cost = cost * 0.9f;
     }
-    if(tipPlata == plata::CASH){
+    if(tipPlata == plata::CASH){    //cu 5 lei mai ieftin pt plata cash
         cost -= 5;
     }
     return cost;
 }
 
-std::string Coafor::descriereServiciu() const{
+std::string Coafor::descriereServiciu() const{          //descriere completa a serviciului de coafat
     std::string descriere = "Coafor";
     if(vopsit) descriere += " + vopsit";
     descriere += " (" + lungimePar + ") ";
@@ -56,7 +55,7 @@ std::shared_ptr<Serviciu> Coafor::clone() const{
     return std::make_shared<Coafor>(*this);
 }
 
-//afisare
+//afisare virtuala
 void Coafor::afiseazaVirtual(std::ostream& os) const{
     Serviciu::afiseazaVirtual(os);
     os<< ", Tip: Coafor" << ", Vopsit: " <<(vopsit ? "da" : "nu")<< ", Lungime par: " <<lungimePar;

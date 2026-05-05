@@ -13,8 +13,9 @@ public:
     Coafor() = default;                                                             //constructor
     Coafor(float pret, int durata, bool vopsit, const std::string& lungimePar);     //constructor cu parametri
 
-    bool getVopsit() const;
+    bool getVopsit() const;      //getter
 
+    //functii virtuale suprascrise
     int durataTotala() const override;
     float calcPretFinal(bool angajatExperimentat, plata tipPlata, bool clientFidel) const override;
     std::string descriereServiciu() const override;

@@ -17,3 +17,4 @@ Belcean Marisa Vasile Ioana MANICHIURA 10.06 12:00 CASH 1 0 1
 Borosici Elisa Georgescu Mihnea PEDICHIURA 11.06 12:30 CARD 1 1 1
 Enescu Ema Ionescu Vlad COAFOR 11.06 13:00 TRANSFER 1 lung
 Barbu Victoria Marin Andreea COSMETICA 11.06 13:30 CARD 1 corp
+Enescu Ema Popa Raluca MANICHIURA 11.09 10 CARD
